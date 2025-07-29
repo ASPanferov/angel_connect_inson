@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коммерческое предложение для INSON</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8FAFE;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 16px 48px rgba(1, 93, 232, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .cover {
+            background: linear-gradient(135deg, #015DE8 0%, #4388E8 100%);
+            color: white;
+            padding: 100px 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .logo {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 50px;
+        }
+
+        .logo h1 {
+            font-weight: 900;
+            font-size: 56px;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo span {
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cover h2 {
+            font-weight: 800;
+            font-size: 36px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cover p {
+            font-size: 20px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            padding: 80px 60px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h3 {
+            font-weight: 800;
+            font-size: 28px;
+            color: #021A3C;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 4px solid #015DE8;
+            position: relative;
+        }
+
+        .section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #015DE8 0%, #4388E8 100%);
+            border-radius: 2px;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 32px 0;
+        }
+
+        .feature {
+            padding: 24px 28px;
+            background: linear-gradient(135deg, rgba(1, 93, 232, 0.05) 0%, rgba(248, 251, 255, 0.8) 100%);
+            border-left: 5px solid #015DE8;
+            border-radius: 16px;
+            box-shadow: 0 6px 24px rgba(1, 93, 232, 0.08);
+            border: 1px solid rgba(1, 93, 232, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(1, 93, 232, 0.15);
+        }
+
+        .feature strong {
+            color: #015DE8;
+            font-weight: 700;
+        }
+
+        .packages-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            box-shadow: 0 12px 40px rgba(1, 93, 232, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(1, 93, 232, 0.1);
+        }
+
+        .packages-table th {
+            background: linear-gradient(135deg, #015DE8 0%, #4388E8 100%);
+            color: white;
+            padding: 24px 20px;
+            font-weight: 800;
+            font-size: 18px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .packages-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(1, 93, 232, 0.08);
+            vertical-align: top;
+            font-size: 15px;
+        }
+
+        .packages-table tr:nth-child(even) {
+            background: rgba(1, 93, 232, 0.03);
+        }
+
+        .packages-table tr:hover {
+            background: rgba(1, 93, 232, 0.06);
+        }
+
+        .price {
+            font-weight: 800;
+            color: #015DE8;
+            font-size: 20px;
+        }
+
+        .package-name {
+            font-weight: 700;
+            color: #021A3C;
+            font-size: 16px;
+        }
+
+        .recommendations {
+            background: linear-gradient(135deg, rgba(1, 93, 232, 0.05) 0%, rgba(248, 251, 255, 0.8) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid rgba(1, 93, 232, 0.1);
+            box-shadow: 0 8px 32px rgba(1, 93, 232, 0.1);
+        }
+
+        .rec-item {
+            margin-bottom: 32px;
+        }
+
+        .rec-item h4 {
+            font-weight: 800;
+            color: #015DE8;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .rec-item ul {
+            margin-left: 24px;
+        }
+
+        .rec-item li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(1, 93, 232, 0.1) 0%, rgba(67, 136, 232, 0.05) 100%);
+            padding: 28px;
+            border-radius: 16px;
+            border-left: 5px solid #015DE8;
+            margin: 32px 0;
+            box-shadow: 0 6px 24px rgba(1, 93, 232, 0.08);
+            border: 1px solid rgba(1, 93, 232, 0.15);
+        }
+
+        .highlight strong {
+            color: #015DE8;
+            font-weight: 700;
+        }
+
+        @media print {
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .cover {
+                background: linear-gradient(135deg, #015DE8 0%, #4388E8 100%) !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+
+            .features, .recommendations, .highlight {
+                background: rgba(1, 93, 232, 0.05) !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+
+            .packages-table th {
+                background: linear-gradient(135deg, #015DE8 0%, #4388E8 100%) !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Обложка -->
+        <div class="cover">
+            <div class="logo">
+                <h1>ANGEL CONNECT</h1>
+                <span>Экосистема стартапов и инноваций</span>
+            </div>
+            <h2>Хакатон для страховой отрасли</h2>
+            <p>Коммерческое предложение для INSON Group</p>
+        </div>
+
+        <div class="content">
+            <!-- О проекте -->
+            <div class="section">
+                <h3>О проекте</h3>
+                <p>Предлагаем организацию и проведение отраслевого хакатона для INSON Group — мероприятия, которое объединит талантливых молодых разработчиков, специалистов по данным и инженеров для создания инновационных решений в страховой отрасли.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <strong>Привлечение талантов:</strong> Знакомство с перспективными молодыми специалистами для потенциального найма
+                    </div>
+                    <div class="feature">
+                        <strong>Готовые решения:</strong> Получение рабочих прототипов для внедрения в бизнес-процессы компании
+                    </div>
+                    <div class="feature">
+                        <strong>Генерация идей:</strong> Сбор инновационных концепций для развития страховых продуктов
+                    </div>
+                    <div class="feature">
+                        <strong>PR и брендинг:</strong> Позиционирование INSON как технологически продвинутой компании
+                    </div>
+                </div>
+
+                <div class="highlight">
+                    <strong>Специализация:</strong> Хакатон будет сфокусирован на решениях для страховой отрасли, включая распознавание автомобилей через нейросети, автоматизацию андеррайтинга, обработку страховых случаев и клиентский сервис.
+                </div>
+            </div>
+
+            <!-- Сравнение пакетов -->
+            <div class="section">
+                <h3>Пакеты услуг</h3>
+                
+                <table class="packages-table">
+                    <thead>
+                        <tr>
+                            <th>Услуги</th>
+                            <th>Базовый</th>
+                            <th>Стандарт</th>
+                            <th>Премиум</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="package-name">Стоимость пакета</td>
+                            <td class="price">150,000,000 UZS</td>
+                            <td class="price">250,000,000 UZS</td>
+                            <td class="price">400,000,000 UZS</td>
+                        </tr>
+                        <tr>
+                            <td>Продолжительность</td>
+                            <td>2 дня</td>
+                            <td>3 дня</td>
+                            <td>3 дня + менторство</td>
+                        </tr>
+                        <tr>
+                            <td>Количество участников</td>
+                            <td>до 100 человек<br>(20-25 команд)</td>
+                            <td>до 120 человек<br>(24-30 команд)</td>
+                            <td>до 150 человек<br>(30-35 команд)</td>
+                        </tr>
+                        <tr>
+                            <td>Разработка концепции</td>
+                            <td>30,000,000 UZS</td>
+                            <td>40,000,000 UZS</td>
+                            <td>50,000,000 UZS</td>
+                        </tr>
+                        <tr>
+                            <td>Техническое задание</td>
+                            <td>Базовое ТЗ<br>25,000,000 UZS</td>
+                            <td>Отраслевое ТЗ<br>40,000,000 UZS</td>
+                            <td>Комплексное ТЗ<br>50,000,000 UZS</td>
+                        </tr>
+                        <tr>
+                            <td>Управление программой</td>
+                            <td>40,000,000 UZS</td>
+                            <td>70,000,000 UZS</td>
+                            <td>100,000,000 UZS</td>
+                        </tr>
+                        <tr>
+                            <td>Координация команд</td>
+                            <td>35,000,000 UZS</td>
+                            <td>50,000,000 UZS</td>
+                            <td>70,000,000 UZS</td>
+                        </tr>
+                        <tr>
+                            <td>Брендинг и дизайн</td>
+                            <td>20,000,000 UZS</td>
+                            <td>30,000,000 UZS</td>
+                            <td>50,000,000 UZS</td>
+                        </tr>
+                        <tr>
+                            <td>Технические эксперты</td>
+                            <td>5 экспертов</td>
+                            <td>8-10 экспертов</td>
+                            <td>12+ экспертов</td>
+                        </tr>
+                        <tr>
+                            <td>PR-поддержка</td>
+                            <td>—</td>
+                            <td>20,000,000 UZS</td>
+                            <td>30,000,000 UZS</td>
+                        </tr>
+                        <tr>
+                            <td>Менторские сессии</td>
+                            <td>Базовые</td>
+                            <td>Расширенные</td>
+                            <td>Персональные + последующее сопровождение</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p style="font-weight: 600; color: #666; font-size: 15px; margin-top: 20px;"><strong>Примечание:</strong> Площадка, кейтеринг, призовой фонд и техническое оснащение предоставляются INSON Group отдельно.</p>
+            </div>
+
+            <!-- Рекомендации -->
+            <div class="section">
+                <h3>Рекомендации по выбору пакета</h3>
+                
+                <div class="recommendations">
+                    <div class="rec-item">
+                        <h4>Базовый пакет — оптимальный старт</h4>
+                        <ul>
+                            <li>Подходит для первого корпоративного хакатона INSON</li>
+                            <li>Фокус на привлечении молодых талантов и генерации идей</li>
+                            <li>Эффективное соотношение цены и качества</li>
+                            <li>Достаточно для получения 3-5 перспективных решений</li>
+                        </ul>
+                    </div>
+
+                    <div class="rec-item">
+                        <h4>Стандартный пакет — расширенные возможности</h4>
+                        <ul>
+                            <li>Дополнительный день для более глубокой проработки решений</li>
+                            <li>PR-поддержка для усиления медиа эффекта</li>
+                            <li>Больше экспертов для качественного менторства</li>
+                            <li>Подходит при планах активного найма специалистов</li>
+                        </ul>
+                    </div>
+
+                    <div class="rec-item">
+                        <h4>Премиум пакет — максимальный результат</h4>
+                        <ul>
+                            <li>Персональное сопровождение лучших проектов после хакатона</li>
+                            <li>Максимальная экспертная поддержка</li>
+                            <li>Профессиональная PR-кампания</li>
+                            <li>Подходит для долгосрочной инновационной стратегии</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ключевые направления -->
+            <div class="section">
+                <h3>Приоритетные направления для разработки</h3>
+                
+                <div class="features">
+                    <div class="feature">
+                        <strong>Распознавание автомобилей:</strong> Нейросетевые решения для автоматической оценки ущерба и определения характеристик ТС
+                    </div>
+                    <div class="feature">
+                        <strong>Автоматизация андеррайтинга:</strong> ИИ-системы для оценки рисков и принятия решений по страховым полисам
+                    </div>
+                    <div class="feature">
+                        <strong>Клиентский сервис:</strong> Чат-боты и виртуальные ассистенты для обработки обращений клиентов
+                    </div>
+                    <div class="feature">
+                        <strong>Обработка документов:</strong> Автоматическое распознавание и обработка страховых документов
+                    </div>
+                </div>
+            </div>
+
+            <!-- Организационные вопросы -->
+            <div class="section">
+                <h3>Организационные детали</h3>
+                
+                <p><strong>Сроки подготовки:</strong> Минимум 4 недели от согласования концепции до проведения мероприятия.</p>
+                
+                <p><strong>Рекомендуемые площадки:</strong> U-enter, School 21, Бунёдкор ИНХА — все площадки имеют необходимую техническую инфраструктуру.</p>
+                
+                <p><strong>Формат отбора:</strong> Открытый набор заявок с последующим отборочным этапом в первый день хакатона для формирования финального состава команд.</p>
+                
+                <p><strong>Призовой фонд:</strong> Рекомендуемый размер — 500-600 USD эквивалента на каждого участника победившей команды (техника или денежные призы).</p>
+
+                <div class="highlight">
+                    <strong>Гарантия участников:</strong> При старте регистрации за месяц до мероприятия гарантируем набор 100+ участников. При необходимости используем таргетированную рекламу для увеличения охвата.
+                </div>
+            </div>
+
+            <!-- Снижение бюджета -->
+            <div class="section">
+                <h3>Возможности оптимизации бюджета</h3>
+                
+                <p>Для снижения общих затрат на мероприятие возможно привлечение партнеров, которые могут покрыть:</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <strong>Информационные партнеры:</strong> IT-парк, образовательные учреждения — поддержка в привлечении участников
+                    </div>
+                    <div class="feature">
+                        <strong>Технологические партнеры:</strong> Покрытие расходов на площадку и техническое оснащение
+                    </div>
+                    <div class="feature">
+                        <strong>Спонсоры призового фонда:</strong> Компании, заинтересованные в совместном брендинге
+                    </div>
+                </div>
+                
+                <p>Привлечение 2-3 партнеров может снизить бюджетную нагрузку на INSON на 30-40%.</p>
+            </div>
+
+            <!-- Контакты -->
+            <div class="section">
+                <h3>Следующие шаги</h3>
+                
+                <p>Для подготовки детального технического задания и финального коммерческого предложения необходимо:</p>
+                
+                <ol style="margin-left: 24px;">
+                    <li style="margin-bottom: 16px; line-height: 1.7; font-size: 15px;">Выбрать предпочтительный пакет услуг</li>
+                    <li style="margin-bottom: 16px; line-height: 1.7; font-size: 15px;">Определить предварительные даты проведения</li>
+                    <li style="margin-bottom: 16px; line-height: 1.7; font-size: 15px;">Согласовать ключевые направления для разработки</li>
+                    <li style="margin-bottom: 16px; line-height: 1.7; font-size: 15px;">Обсудить возможности привлечения партнеров</li>
+                </ol>
+                
+                <div class="highlight">
+                    <strong>Готовы к презентации:</strong> При необходимости готовы провести презентацию проекта для руководства INSON с детальным обсуждением технических и организационных аспектов.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
